@@ -1,4 +1,5 @@
 # Profiles_Posts_TASK_HireQ -> 
+
 Folder structure:
 routes: consist of files to tell on which route where to go.
 controllers : consist of files, of working what to do after reaching there.
