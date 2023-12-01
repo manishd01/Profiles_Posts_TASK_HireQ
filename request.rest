@@ -1,0 +1,156 @@
+# POST  http://localhost:3000/api/auth 
+# Content-Type: application/json
+# {
+#     "username":"ram01",
+#     "password":"32jdww"
+# }
+
+@base_url = http://localhost:3000
+
+### Register a new user
+POST {{base_url}}/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "ram01",
+    "password": "32jdww"
+}
+###
+POST {{base_url}}/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "raja034",
+    "password": "tsejdi"
+}
+### logining with correct details
+POST {{base_url}}/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "ram01",
+    "password": "32jdww"
+}
+
+###
+
+POST {{base_url}}/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "raja034",
+    "password": "tsejdi"
+}
+
+
+### logining with incorrect details
+
+POST {{base_url}}/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "ram012",
+    "password": "32jdww2"
+}
+
+####
+
+POST {{base_url}}/api/auth/logout
+Content-Type: application/json
+
+{
+    "username": "ram01",
+    "password": "32jdww2"
+}
+
+
+###
+
+GET {{base_url}}/api/profile/ram01
+
+###
+
+GET {{base_url}}/api/profile/usern11
+
+###
+
+GET  {{base_url}}/api/profile/all
+
+###
+
+DELETE {{base_url}}/api/profile/ram01 
+
+###
+POST {{base_url}}/api/profile/create
+Content-Type: application/json
+
+{
+    "userid": "ram023",
+    "biotext": "hello i am r"
+}
+
+
+###
+PUT {{base_url}}/api/profile/ram01 
+Content-Type: application/json
+
+{
+    "bio":"hello my name is xyz"
+}
+
+
+###
+
+POST {{base_url}}/api/posts/
+Content-Type: application/json
+
+{
+    "userId":"AMAN02",
+    "content":"hello i am going to banglore."
+}
+
+###
+
+POST {{base_url}}/api/posts/
+Content-Type: application/json
+
+{
+    "userId":"opti45",
+    "content":"hello i am coming to resiq."
+}
+
+###
+GET {{base_url}}/api/posts/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# POST {{base_url}}/api/profile/create
+# Content-Type: application/json
+//idhr space hona jruri hai
+# {
+#     "userid": "aasjsjdsjsssss",
+#     "biotext": "hello i am a devil"
+# }
+
+
+//sapcing enter ka dhyaan rkho
+# if like this -> {  "message": "Profile validation failed: user: Path `user` is required."}
+# POST {{base_url}}/api/profile/create
+
+# Content-Type: application/json
+
+# {
+#     "userid": "user 32",
+#     "biotext": "hello i am a devil"
+# }
