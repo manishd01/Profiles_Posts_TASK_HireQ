@@ -1,5 +1,5 @@
 const Post = require("../model/post");
-
+require("../globals");
 const createPost = async (req, res) => {
   try {
     const { userId, content } = req.body;
@@ -21,8 +21,10 @@ const createPost = async (req, res) => {
 
 const getPosts = async (req, res) => {
   try {
+    const curr_usr = cur_user;
+    console.log(curr_usr, "ye bala user");
     // Retrieve all posts
-    const posts = await Post.find();
+    const posts = await Post.find({ user: curr_usr });
 
     res.status(200).json(posts);
   } catch (error) {

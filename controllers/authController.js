@@ -1,11 +1,12 @@
 const User = require("../model/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+// const authTkn = require("../globals");
+require("../globals");
 
 const register = async (req, res) => {
+  const { username, password } = req.body;
   try {
-    const { username, password } = req.body;
-
     // Check if the user already exists
     const existingUser = await User.findOne({ username });
 
@@ -51,10 +52,15 @@ const login = async (req, res) => {
     }
 
     // Create a JWT token
-    const token = jwt.sign({ userId: user._id }, "your-secret-key", {
+    const token = jwt.sign({ userId: user._id }, "X7jg#r53d67hfghb", {
       expiresIn: "1h",
     });
 
+    //store token in localstorage/ or cookies, or sessions :
+    // sessionStorage.setItem("authToken", token); //cannot do this on server side :)lol
+    authTkn = token;
+    cur_user = username;
+    console.log("token vaulue provided:", authTkn);
     res.status(200).json({ token });
   } catch (error) {
     console.error(error);
@@ -63,6 +69,9 @@ const login = async (req, res) => {
 };
 
 const logout = async (req, res) => {
+  authTkn = ".";
+  cur_user = ".";
+
   res.status(200).json({ message: "Logout successful" });
 };
 
